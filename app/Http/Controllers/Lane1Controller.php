@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Lane1;
 use App\Register;
+use App\Schedule;
 use Illuminate\Http\Request;
+use App\Http\Requests\LaneRequest;
 
 class Lane1Controller extends Controller
 {
@@ -17,7 +19,8 @@ class Lane1Controller extends Controller
     {
         $users = Lane1::all();
         $registers =Register::all();
-        return view('register.lanea',compact('users','registers'));
+        $schedules = Schedule::all();
+        return view('register.lanea',compact('users','registers','schedules'));
     }
 
     /**
@@ -36,35 +39,41 @@ class Lane1Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LaneRequest $request)
     {
-        $data = $this->validate($request,[
-            'bnccId'=>['required'],
-            'nama'=>['required'],
-            'email'=>['required','email','unique:registers,email'],
-            'nim'=>['required','numeric','digits:10','unique:registers,nim'],
-            'tlp'=>['required','min:8','max:15','unique:registers,tlp'],
-            'lineId'=>['required','unique:registers,lineId'],
-        ]);
         Lane1::create([
-            'bnccId'=>$data['bnccId'],
-            'nama'=>$data['nama'],
-            'email'=>$data['email'],
-            'nim'=>$data['nim'],
-            'tlp'=>$data['tlp'],
-            'lineId'=>$data['lineId'],
+            'bnccId'=>$request->bnccId,
+            'nama'=>$request->nama,
+            'jurusan'=>$request->jurusan,
+            'email'=>$request->email,
+            'nim'=>$request->nim,
+            'tlp'=>$request->tlp,
+            'lineId'=>$request->lineId,
         ]);
+        $bncc_id = Lane1::where('nim',$request->nim)->first();
         $lane= 'A';
+
         Register::create([
-            'bnccId'=>$data['bnccId'],
-            'nama'=>$data['nama'],
-            'email'=>$data['email'],
-            'nim'=>$data['nim'],
-            'tlp'=>$data['tlp'],
-            'lineId'=>$data['lineId'],
+            'bnccId'=>$request->bnccId,
+            'nama'=>$request->nama,
+            'jurusan'=>$request->jurusan,
+            'email'=>$request->email,
+            'nim'=>$request->nim,
+            'tlp'=>$request->tlp,
+            'lineId'=>$request->lineId,
+            'payment'=>$request->payment,
             'lane'=>$lane,
+            'pembayar'=>$request->pembayar,
+            'materi'=>$request->materi,
+            'schedule_id'=>$request->schedule_id,
         ]);
-        return view('register.lanea', compact('bncc_id','lane'));
+        $schedules = Schedule::where('id',$request->schedule_id)->first();
+
+        $schedules->increments += 1;
+        $schedules->save();
+
+
+        return redirect('/register/a')->with('message','Register succesful')->withErrors([]);
     }
 
     /**

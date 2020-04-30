@@ -1,0 +1,158 @@
+@media screen 
+  and (max-width: 1200px) 
+   {
+
+    /* .body{
+        background-image: url('../img/bg-pattern\(mobile\)\ section\ 3-4.png')
+    } */
+
+    .page{
+        padding-top: 3em;
+        padding-bottom: 3em;
+        padding-left: 0!important;
+        padding-right: 0!important;
+    }
+    .content{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+    } 
+
+    .title>h3{
+        font-size: 22px;
+    }
+
+    .title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .hidden{
+        display: none;
+    }
+    
+    .classes{
+        margin-top: 2em;
+    }
+
+    .community, .classes{
+        align-self: center;
+        width: 85%;
+        margin-bottom: 2em;
+    }
+
+    .community .title{
+        margin-bottom: 3px;
+    }
+
+    .col-md-6{
+        margin: 0 0 2em 0;
+    }
+
+    .col-md-4, .col-md-5{
+        padding: 0;
+        margin: 0;
+  
+    }
+
+    .top-card,.tint,.top-icon{
+        height: 7em;
+    }
+
+    .class-icon{
+        height: 9em;
+    }
+
+    .class-icon,.icon{
+        display: flex;
+        justify-content: center;
+        width: 40%;
+    }
+
+    .icon{
+        height: 7em;
+    }
+
+    .icon>img{
+         width: 5em;
+         height: 5em;
+         margin-right: 0.2em;
+     }
+
+    .card-title{
+         width: 60%; 
+     }
+
+    .card-title>h3{
+         font-size: 1.2em;
+         margin-left: 0.2em;
+    }
+
+     .bottom-card>p{
+         padding: 20px 23px;
+	 font-size: 1em;
+     }
+
+     .arrow>img{
+         width: 1em;
+         height: 1.5em;
+     }
+
+     .carousel-control-prev{
+        left: -2em;
+    }
+    
+    .carousel-control-next{
+        right: -2em;
+    }
+
+    .carousel-item{
+       right: 0;
+    }
+
+    .class-icon>img{
+        height: auto;
+        width: 5em;
+    }
+
+    .card{
+        height: 25em;
+    }
+
+    .class-top-card, .class-tint, .class-top-icon{
+        height: 9em;
+    }
+
+    .carousel-indicators>li{
+        width: 10px;
+        height: 10px;
+    }
+
+    .carousel-indicators{
+        bottom: -3em;
+    }
+
+  }
+@media screen and (max-width: 500px)
+{
+  .bottom-card>p{
+	font-size: 0.8em;	
+  }
+		
+}
+@media screen and (max-width: 350px)
+{
+  .bottom-card>p{
+	font-size: 0.7em;	
+  }
+  .icon>img{
+   	width: auto;
+	height: 3em;
+  }
+  .card-title>h3{
+	font-size: 0.9em;
+  }
+		
+}

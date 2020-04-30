@@ -1,0 +1,204 @@
+@font-face{
+    font-family: 'Montserrat SemiBold';
+    src: url('../assets/fonts/montserrat/Montserrat-SemiBold.otf');
+}
+
+@font-face{
+    font-family: 'Roboto';
+    src: url('../assets/fonts/roboto/Roboto-Medium.ttf');
+}
+
+/* body{
+    margin: 2em 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('../assets/img/bg-pattern.png')
+} */
+
+.page{
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2.5em;
+}
+
+.title h3{
+    font-family: 'Montserrat SemiBold';
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.2em;
+}
+
+.title>img{
+    align-self: center;
+    width: 3em;
+}
+
+.page > .card{
+    padding: 0;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+.class-top-card, .top-card{
+    height: 11em;
+    width: 100%;
+    margin: 0; padding: 0;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    border-radius: 7px 7px 0 0;
+}
+
+.class-tint, .tint{
+    height: 11em;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    background: rgba(14, 14, 22, 0.85);
+    border-radius: 7px 7px 0 0;
+}
+
+.class-top-icon, .top-icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 3;
+    height: 11em;
+}
+
+.page > .content{
+    display: flex;
+    flex-direction: row;
+    background-image: url('../assets/img/bg-pattern.png')
+}
+
+.page > .carousel{
+    display: flex;
+    flex-direction: row;
+}
+
+.carousel-indicators>li{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #222;
+}
+.page > .carousel-indicators{
+    bottom: -20px;
+    right: 10px;
+}
+
+.page > .carousel-item{
+    right: -100px;
+}
+
+.icon, .class-icon{
+    display: flex;
+    justify-content: center;
+    height: 11em;
+}
+
+.icon>img{
+    align-self: center;
+    height: 9em;
+    width: 9em;
+}
+
+.card-title{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.card-title>h3{
+    color: #e7e9ee;
+    align-self: center;
+}
+
+.bottom-card{
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-card>p{
+    padding: 40px 46px;
+    font-family: 'Roboto';
+    color: #e7e9ee;
+    align-self: center;
+    text-align: justify;
+    margin: 0;
+}
+
+.page > .community-card{
+    display: flex;
+    flex-direction: row;
+}
+
+.page > .carousel-control-prev{
+    left: 20px;
+}
+
+.page > .carousel-control-next{
+    right: 20px;
+}
+
+.arrow>img{
+    width: 2em;
+    height: 2em;
+}
+
+.class-icon>img{
+    align-self: center;
+    height: 7em;
+    width: 7em;
+}
+
+.page > .card{
+    height: 30em;
+}
+
+.carousel-indicators>li{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #222;
+}
+.page > .carousel-indicators{
+    bottom: -40px;
+}
+.logoSponsor{
+    width: 18%;
+}
+@media screen and (max-width: 850px)
+{
+  .logoSponsor{
+    width: 35%;  
+  }
+		
+}
+@media screen and (max-width: 650px)
+{
+  .logoSponsor{
+    width: 50%;  
+  }
+		
+}
+@media screen and (max-width: 500px)
+{
+  .logoSponsor{
+    width: 100%;  
+  }
+		
+}
+

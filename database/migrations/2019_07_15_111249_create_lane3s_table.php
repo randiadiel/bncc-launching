@@ -17,6 +17,7 @@ class CreateLane3sTable extends Migration
             $table->bigIncrements('id');
             $table->integer('bnccId')->nullable();
             $table->string('nama');
+            $table->string('jurusan');
             $table->string('email');
             $table->string('nim');
             $table->string('tlp');

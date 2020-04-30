@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.content {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2% 0;
+}
+.search-content {
+  min-width: 95%;
+}
+.table-content {
+  margin: 2%;
+  width: 95%;
+  overflow: scroll;
+}
+.edit-content {
+  min-width: 95%;
+  margin: 2% 0;
+}
+.edit-content input {
+  margin: 5px;
+}

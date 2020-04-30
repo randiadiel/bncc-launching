@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Register;
 use DB;
+use App\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Input;
-
+use App\Http\Requests\LaneRequest;
+use App\Http\Requests\SoloLaneRequest;
 
 class RegisterController extends Controller
 {
@@ -64,7 +66,8 @@ class RegisterController extends Controller
     {
         $id =$request->id;
         $users = Register::find($id);
-        return view('register.register',compact('users'));
+        $schedules = Schedule::all();
+        return view('register.register',compact('users','schedules'));
 
     }
 
@@ -77,17 +80,31 @@ class RegisterController extends Controller
      */
     public function update(Request $request, Register $register,$id)
     {
+
+        $decrements = Schedule::where('id',$request->decrements)->first();
+        $decrements->increments -= 1;
+        $decrements->save();
+
         $users = Register::find($id);
 
         $users->nama =$request->nama;
+        $users->jurusan =$request->jurusan;
         $users->email =$request->email;
         $users->nim =$request->nim;
         $users->tlp =$request->tlp;
         $users->lineId =$request->lineId;
         $users->bnccId =$request->bnccId;
+        $users->payment =$request->payment;
+        $users->schedule_id =$request->schedule_id;
+        $users->pembayar =$request->pembayar;
         $users->save();
 
-        return redirect('/register/a');
+
+        $schedules = Schedule::where('id',$request->schedule_id)->first();
+
+        $schedules->increments += 1;
+        $schedules->save();
+        return redirect('/search');
     }
 
     /**
@@ -107,8 +124,9 @@ class RegisterController extends Controller
         //     $registers =App\Register::where('lane', request('lane'))->paginate(5)->appends('lane',request('lane'));
         // }
         // else{
-
             $search = Input::get('search');
+            // $user = Register::where('nim',$search)->first();
+
             if($search != ""){
                 $register = Register::where('email','like','%'.$search.'%')
                                         ->orWhere('nim','like','%'.$search.'%')
@@ -118,6 +136,77 @@ class RegisterController extends Controller
                     return view('search')->withDetails($register)->withQuery($search);
             }
         // }
-        return view('search')->withMessage('No data found');
+
+        // if($user == null){
+            return view('search')->withMessage('No data found');
+        // }
+        // $register = Register::where('nim', $search)->first();
+        // return view('search', compact('register','user'));
+
+                        // $register = Register::where('nim','=',$search)->first();
     }
+
+    public function searchv1(Request $request){
+
+        $search = Input::get('search');
+            $user = Register::where('nim',$search)->first();
+
+        if($user == null){
+            return view('user.data',compact('user'))->withMessage('No data found');
+        }
+        $register = Register::where('nim', $search)->first();
+        $schedules = Schedule::all();
+        return view('user.data', compact('register','user','schedules'));
+    }
+
+    public function viewinput(){
+        return view('user.input');
+    }
+    public function viewchanges(Request $request){
+        $id =$request->id;
+        $registers = Register::find($id);
+        return view('user.data',compact('registers'));
+    }
+    public function changes(SoloLaneRequest $request)
+    {
+
+        $nim = Input::get('nim');
+        $register = Register::where('nim',$nim)->first();
+
+        $register->nama =$request->nama;
+        $register->jurusan =$request->jurusan;
+        $register->email =$request->email;
+        $register->nim =$request->nim;
+        $register->tlp =$request->tlp;
+        $register->lineId =$request->lineId;
+        $register->payment =$request->payment;
+        $register->schedule_id =$request->schedule_id;
+        $register->save();
+
+        return redirect('/user');
+    }
+
+    public function games(){
+
+        return view('games.games');
+    }
+
+    public function gameslogin(Request $request){
+
+        $nim = Input::get('nim');
+        $users = Register::where('nim',$nim)->first();
+
+        if($users->game == 0){
+            $users->game = 1;
+            $users->save();
+            return view('games.games-data',compact('users'));
+        }
+
+        return redirect('/games')->with('failed','Id sudah terpakai');
+    }
+
+    public function gamesdata(){
+        return view('games.game-data');
+    }
+
 }

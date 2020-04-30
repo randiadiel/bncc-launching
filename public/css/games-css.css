@@ -1,0 +1,131 @@
+@font-face{
+    font-family: "Montserrat-SemiBold";
+    src: url('../assets/font/Montserrat-SemiBold.ttf');
+}
+
+@font-face{
+    font-family: "Montserrat-Light";
+    src: url('../assets/font/Montserrat-Light.ttf');
+}
+
+.montserrat-sb{
+    font-family: 'Montserrat-SemiBold';
+    color: #e7e9ee;
+}
+
+body{
+    background-color: #0e0e16;
+    height: 100vh;
+    z-index: 0;
+}
+
+.page>img{
+    width: 100vw;
+    height: auto;
+}
+
+.page{
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+}
+
+.content-container{
+    /* position: absolute; */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100%;
+}
+
+.content{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+}
+
+.title>h4{
+    font-family: 'Montserrat-SemiBold';
+    color: #e7e9ee;
+    margin: 0;
+}
+
+.title>img{
+    width: 2em;
+    margin-bottom: 1em;
+}
+
+.content-isi{
+    color: #e7e9ee;
+}
+
+.content-isi>p{
+    margin-bottom: 0;
+    font-size: 14px;
+}
+.content-isi div{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.button{
+    background-color: #0ab0da;
+    width: 6em;
+    height: 2em;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+.input{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.input>input{
+    width: 17em;
+    background-color: #0e0e16;
+    border-style: solid;
+    border-color: #e7e9ee;
+    border-radius: 5px;
+    margin-top: 1em;
+    height: 2em;
+    color: #e7e9ee;
+    text-align: center;
+}
+
+::placeholder{
+    color: #e7e9ee;
+    opacity: 0.7;
+}
+
+input::placeholder{
+    font-family: 'Montserrat-SemiBold';
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.logo-img{
+    position: absolute;
+    top: 0;
+}
+.cloud-img{
+    position: absolute;
+    bottom: 0;
+}

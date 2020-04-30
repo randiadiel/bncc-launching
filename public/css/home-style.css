@@ -1,0 +1,221 @@
+@font-face{
+    font-family: "roboto-regular";
+    src: url('../assets/fonts/roboto/Roboto-Regular.ttf');
+}
+
+@font-face{
+    font-family: "roboto-medium";
+    src: url('../assets/fonts/roboto/Roboto-Medium.ttf');
+}
+
+@font-face{
+    font-family: "montserrat-semibold";
+    src: url('../assets/fonts/montserrat/Montserrat-SemiBold.otf');
+}
+
+@font-face{
+    font-family: "montserrat-medium";
+    src: url('../assets/fonts/montserrat/Montserrat-Medium.otf');
+}
+
+/* FONT STYLING */
+
+.text-roboto-regular{
+    font-family: "roboto-regular";
+}
+
+.text-roboto-medium{
+    font-family: "roboto-medium";
+}
+
+.text-montserrat-semibold{
+    font-family: "montserrat-semibold";
+}
+
+.text-montserrat-medium{
+    font-family: "montserrat-semibold";
+}
+
+/* END OF FONT STYLING */
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+.navbar{
+    position: absolute;
+    z-index: 5;
+}
+
+section{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.logo-learning-partner{
+    max-width: 50%;
+}
+
+.section-1-background{
+    min-height: 100vh;
+    background: url('../assets/section1-1-dark.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    filter: hue-rotate();
+}
+
+.section-2-background{
+    min-height: 100vh;
+    background: url('../assets/section1-2-dark.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.section-3-background{
+    min-height: 100vh;
+    background: url('../assets/section1-3-dark.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.section-1-atribute-container{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+}
+
+.image-block{
+    display: block;
+}
+
+.register-button{
+    background: #0AB0DA;
+}
+
+.section-2-wrapper{
+    background: #0E0E16;
+    min-height: auto !important;
+}
+
+.heading-line{
+    width: 70px;
+    height: 15px; 
+    background: #0AB0DA;
+    border-radius: 20px;
+}
+
+.what-is-bncc-filter{
+    background: rgb(10,176,218);
+    background: linear-gradient(135deg, rgba(10,176,218,0.95) 50%, rgba(49,60,128,1) 100%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.bg-pattern{
+    background: url(../assets/bg-pattern.png);
+}
+
+.card-filter-pink{
+    background: rgba(141, 65, 124, 0.95);
+    border-radius: inherit; 
+}
+
+.card-filter-blue{
+    background: rgba(49, 60, 128, 0.95);
+    border-radius: inherit;
+    /* position: absolute; */
+}
+
+.benefit-card{
+    width: 25%;
+}
+
+.bg-card-image-1{
+    background: url('../assets/section3-1-min.png');
+    background-size: cover;
+}
+
+.bg-card-image-2{
+    background: url('../assets/section3-2-min.png');
+    background-size: cover;
+}
+
+.section-4-wrapper{
+    background: #0E0E16;
+}
+
+.gold-sponsor{
+    width: 75%;
+}
+
+.homepage-footer{
+    background: #0E0E16;
+}
+
+.turquoise-heading{
+    color: #0AB0DA;
+}
+
+@media screen and (max-width: 1200px){
+    .bncc-description{
+        min-width: 80% !important;
+    }
+
+    .logo-learning-partner{
+        min-width: 50%;
+
+    }
+
+    .bg-pattern{
+        background-position: -100px;
+    }
+
+    .card-filter{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 2vw;
+    }
+
+    .card-filter > .img{
+        width: 50% !important;
+        margin: 0 !important;
+    }
+
+    .benefit-card{
+        /*width: 60% !important;*/
+        margin: 0 !important;
+    }
+
+    .card-filter > h4{
+        margin: 0 !important;
+    }
+    
+    .join-card{
+        margin-top: 1rem !important;
+    }
+
+    .gold-sponsor{
+        width: 75%;
+    }
+}
